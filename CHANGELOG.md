@@ -1,6 +1,19 @@
 # Postman Runtime Changelog
 
-### Unreleased
+#### v7.1.2 (December 8, 2017)
+* Updated dependencies :arrow_up:
+* #500 Fixed entrypoint detection error :bug:
+* #498 Cleared OAuth2 state conflicts for duplicate parameters :bug:
+* #490 Switched to variable lists from POJOs :racehorse:
+* #492 Removed redundant AWS auth region fallback :bug:
+* #491 Updated entrypoint documentation :srcoll:
+* #487 Accelerated memory leack checker script :racehorse:
+
+### v7.1.1 (November 30, 2017)
+* Dropped support for legacy `serviceName` property in `aws` auth.
+* :arrow_up: Updated dependencies.
+
+### v7.1.0 (November 21, 2017)
 * Runtime now adds `system: true` to all the query parameters that it sets
 * More useful error messages for assertion failures in legacy `tests`
 * Digest auth does not attempt retries for invalid credentials/configuration. It will continue to retry for missing configuration.
@@ -13,7 +26,7 @@
             restrictedAddresses: {'x.x.x.x': true}
         }});
         ```
-    - In Unreleased
+    - In v7.1.0
         ```js
         runner.run(collection, {
             network: {

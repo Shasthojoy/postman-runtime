@@ -58,6 +58,17 @@ runner.run(collection, {
     // Globals (a "VariableScope" from the SDK)
     globals: new sdk.VariableScope(),
 
+    // Execute a folder/request using id/name or path
+    entrypoint: {
+        // execute a folder/request using id or name
+        execute: 'folderName',
+        // idOrName in case of execute and path in case of path 
+        // is chosen to specify the folder/request to be executed
+        lookupStrategy: 'path',
+        // execute a folder/request using a path
+        path: ['grand_parent_folder_idOrName', 'parent_folder_idOrName']
+    },
+
     // Configure delays (in ms)
     delay: {
         // between each request
@@ -125,7 +136,6 @@ You can pass a series of callbacks for runtime to execute as a collection is bei
 runner.run(collection, { /* options */ }, function(err, run) {
     run.start({
         // Called any time we see a new assertion in the test scripts
-        // *note* Not used yet.
         assertion: function (cursor, assertions) {
             // cursor = {
             //     position: Number,
@@ -136,7 +146,9 @@ runner.run(collection, { /* options */ }, function(err, run) {
             //     empty: Boolean,
             //     bof: Boolean,
             //     cr: Boolean,
-            //     ref: String
+            //     ref: String,
+            //     scriptId: String,
+            //     eventId: String
             // }
 
             // assertions: array of assertion objects
